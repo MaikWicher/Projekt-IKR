@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5b4fc" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <linearGradient id="tableGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="60%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <linearGradient id="chairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect
+    x="5"
+    y="5"
+    width="118"
+    height="118"
+    rx="28"
+    fill="url(#bgGrad)"
+    stroke="url(#borderGrad)"
+    stroke-width="2.5"
+  />
+
+  <circle cx="64" cy="58" r="48" fill="url(#centerGlow)" />
+
+  <rect
+    x="28"
+    y="20"
+    width="72"
+    height="42"
+    rx="4"
+    fill="rgba(99, 102, 241, 0.12)"
+    stroke="url(#screenGrad)"
+    stroke-width="3.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M 32 24 L 62 24 L 46 60 L 32 60 Z"
+    fill="#ffffff"
+    opacity="0.06"
+  />
+
+  <path
+    d="M 35 106 L 56 60 C 57.5 57, 60 56, 64 56 C 68 56, 70.5 57, 72 60 L 93 106"
+    fill="rgba(56, 189, 248, 0.08)"
+    stroke="url(#tableGrad)"
+    stroke-width="3.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <g id="chairs-left" fill="none" stroke="url(#chairGrad)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M 45 54 C 42.5 52, 39 51, 36.5 53.5 C 34.5 55.5, 35.5 58.5, 37.5 62 C 39.5 65.5, 42.5 67, 45.5 65.5" />
+
+    <path d="M 39 67 C 36 64.5, 31.5 62.5, 29 65.5 C 26.5 68.5, 27.5 72.5, 30 77 C 32.5 81.5, 36 83.5, 39.5 81.5" />
+
+    <path d="M 32 81.5 C 28.5 78.5, 23 76, 20 79.5 C 17 83.5, 18 88.5, 21.5 94 C 24.5 99.5, 29 102, 33 99.5" />
+  </g>
+
+  <use href="#chairs-left" transform="translate(128, 0) scale(-1, 1)" />
+
+  <circle cx="64" cy="13" r="2.2" fill="#f59e0b" />
+</svg>

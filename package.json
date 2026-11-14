@@ -1,0 +1,35 @@
+{
+  "name": "projekt-ikr",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "server": "npm --prefix server run dev",
+    "server:build": "npm --prefix server run build",
+    "server:push": "npm --prefix server run prisma:push",
+    "server:seed": "npm --prefix server run prisma:seed"
+  },
+  "dependencies": {
+    "@fullcalendar/react": "^7.1.3",
+    "@types/canvas-confetti": "^1.9.0",
+    "canvas-confetti": "^1.9.4",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.59.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "temporal-polyfill": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

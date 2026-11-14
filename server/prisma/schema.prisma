@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CLIENT
+  ADMIN
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         Role      @default(CLIENT)
+  phone        String?
+  companyName  String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  bookings     Booking[]
+
+  @@map("users")
+}
+
+model Room {
+  id            String    @id
+  name          String
+  category      String
+  categoryLabel String
+  capacity      Int
+  hourlyRate    Float
+  color         String
+  bgColor       String
+  borderColor   String
+  equipment     String[]
+  description   String
+  floor         String
+  imageUrl      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  bookings      Booking[]
+
+  @@map("rooms")
+}
+
+model Booking {
+  id                String        @id @default(uuid())
+  code              String        @unique
+  title             String
+  roomId            String
+  room              Room          @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  userId            String?
+  user              User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  customerName      String
+  customerEmail     String
+  customerPhone     String
+  companyName       String?
+  start             DateTime
+  end               DateTime
+  attendeesCount    Int           @default(1)
+  status            BookingStatus @default(CONFIRMED)
+  notes             String?
+  adminNotes        String?
+  selectedEquipment String[]      @default([])
+  totalCost         Float         @default(0)
+  paymentMethod     String?       @default("blik")
+  paymentStatus     String?       @default("paid")
+  transactionId     String?
+  paidAt            DateTime?     @default(now())
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([roomId, start, end])
+  @@index([customerEmail])
+  @@map("bookings")
+}
